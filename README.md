@@ -8,3 +8,9 @@ Say goodbye to hard-coded headaches and say hello to FluffyBunny.Config – a li
 🧁 Light as a Cupcake – No bloat. Just sweet, simple config management.
 FluffyBunny.Config: Because your app deserves a configuration experience that's smooth, cozy, and totally hoppy.
 
+With FluffySettings you can:
+- Read your appsettings.json form every part of the program
+- Add properties to your settings file
+- Remove properties from your settings file
+- Modify properties of your settings file
+- Use two modes: auto-sync (you always get synced file content), local-memory (file gets synced with its current content on any time you want)
