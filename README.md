@@ -6,7 +6,6 @@ Appsettings.json of your app doesn't need to be so hard to access. Say goodbye t
 🐰 Easy to Use – Load, access, and update settings with minimal code and maximum fluffiness.
 🎯 Flexible – Quickly change configurations without jumping through hoops. Your bunny’s got your back.
 🧁 Light as a Cupcake – No bloat. Just sweet, simple config management.
-FluffyBunny.Config: Because your app deserves a configuration experience that's smooth, cozy, and totally hoppy.
 
 With FluffySettings you can:
 - Read your appsettings.json form every part of the program
