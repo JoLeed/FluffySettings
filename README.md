@@ -89,7 +89,7 @@ Later usage
     settings.Save()
 > saves the file and applies the changes to your appsettings.json
 
-
+: :
 ## Source mirroring functionality (under development)
 Source mirroring enables your instance to be always on time with it's original state.
 
