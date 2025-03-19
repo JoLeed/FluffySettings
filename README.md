@@ -92,6 +92,16 @@ Later usage
 ## Source mirroring functionality (under development)
 Source mirroring enables your instance to be always on time with it's original state.
 
+###It's recommended to keep the source mirroring on, but if you're motivated to do so:
+
+In your model, add parameter to the constructor:
+
+    ublic SettingsModel(bool autosv) : base(mirroring: autosv) { }
+
+Then while creating an instance:
+
+    SettingsModel settings = new SettingsModel(false); //passes false value to the constructor of the file.
+
 ### FileChanged Event
 Event is being called when source file gets modified.
 This allows you to be always up-to-date with settings of your file without restarting the app or reinitializing the instance.
