@@ -92,7 +92,7 @@ Later usage
 ## Source mirroring functionality (under development)
 Source mirroring enables your instance to be always on time with it's original state.
 
-###It's recommended to keep the source mirroring on, but if you're motivated to do so:
+### It's recommended to keep the source mirroring on, but if you're motivated to do so:
 
 In your model, add parameter to the constructor:
 
