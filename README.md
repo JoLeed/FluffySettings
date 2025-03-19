@@ -103,10 +103,10 @@ Then while creating an instance:
 
     SettingsModel settings = new SettingsModel(false); //passes false value to the constructor of the file.
 
-### FileChanged Event
+### SourceChanged Event
 Event is being called when source file gets modified.
 This allows you to be always up-to-date with settings of your file without restarting the app or reinitializing the instance.
-You can override the **FileChanged** method to handle this event.
+You can override the **SourceChanged** method to handle this event.
 
 ## Example usage
 
