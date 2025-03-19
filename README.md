@@ -75,7 +75,7 @@ Requesting parameter declared in your class, instantly returns value from appset
 
 *This way, all changes are discarded and file is being reloaded to it's newest state.*
 
-###When file is initialized, you can already access any property value
+### When file is initialized, you can already access any property value
 
     settings.AllowedHosts
     > "value"
