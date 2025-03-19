@@ -114,3 +114,11 @@ You can override the **SourceChanged** method to handle this event.
     {
         // your logic here
     }
+
+## Properties protection
+Some settings should be read only for yoor app. To make it so, add the **ProtectedProperty** attribute to your property.
+You will be only able to modify this property from your file or other program.
+This is to keep your program secure and prevent any bugs to gain access to unwanted parts.
+    
+        [ProtectedProperty]
+        public bool AppCanDeleteSystemFile { get; set; }
