@@ -68,13 +68,14 @@ And that's it! Your appsettings.json file is ready!
 When you initalize new instance of appsettings file, it automatically loads it's parameter's values.
 
 Requesting parameter declared in your class, instantly returns value from appsettings file.\
-*!!Important!!* File does not automatically synchronise with the physical one on the device since **Source mirroring is still in development**. When file gets modified by another process or user, properies won't synchronise. All properties are loaded only once. When you want the current content of your file, call:
+
+*!!Important!! File does not automatically synchronise with the physical one on the device since **Source mirroring is still in development**. When file gets modified by another process or user, properies won't synchronise. All properties are loaded only once. When you want the current content of your file, call:*
 
     settings.Discard()
 
-This way, all changes are discarded and file is being reloaded to it's newest state.
+*This way, all changes are discarded and file is being reloaded to it's newest state.*
 
-When file is initialized, you can already access any property value
+###When file is initialized, you can already access any property value
 
     settings.AllowedHosts
     > "value"
