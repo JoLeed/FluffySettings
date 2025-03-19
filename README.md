@@ -33,7 +33,7 @@ First create a class:
     
     }
     
-If you want to pass any settings add the following line to the class:
+If you want to pass any settings, just add the following line to the class:
 
         public SettingsModel(bool autosv) : base(autoSave: autosv) { } // This part is important when you want to pass your instance parameters
 
@@ -42,7 +42,7 @@ If you want to pass any settings add the following line to the class:
     [AppsettingsProperty]
     public string YourPropertyName { get; set; } = "";
 
-And that's it! Your ready to access and modify your appsettings.json file.
+And that's it! Your appsettings.json file is ready!
 
 ### Full settings file class example:
     public class SettingsModel : AppSettings
@@ -65,10 +65,10 @@ And that's it! Your ready to access and modify your appsettings.json file.
 
     SettingsModel settings = new SettingsModel(false); //creating new instance of your file
 
-When you initalize new instance of appsettings file, it automatically loads and is read to be used.
+When you initalize new instance of appsettings file, it automatically loads it's parameter's values.
 
 Requesting parameter declared in your class, instantly returns value from appsettings file.\
-*!!Important!!* File does not automatically synchronise with the physical one on the computer since autosync is still in development. All properties are loaded only once. When you need newest content of your file, call:
+*!!Important!!* File does not automatically synchronise with the physical one on the device since autosync is still in development. When file gets modified by another process or user, properies won't synchronise. All properties are loaded only once. When you want the current content of your file, call:
 
     settings.Discard()
 
@@ -83,7 +83,22 @@ Later usage
 
     settings.LogsLocation = "C:\Users\Fluffy\Logs\Output" // setting parameter value
     settings.Save()
-  
+ :
+ 
     settings.Save()
 > saves the file and applies the changes to your appsettings.json
 
+
+## Autosync functionality (under development)
+Autosync enables your instance to be always on time with it's original state.
+
+### FileChanged Event
+Event is being called every time when file got modified.
+You can override the **FileChanged** method to handle this event.
+
+##Example usage
+
+    public override void FileChanged()
+    {
+        // your logic here
+    }
