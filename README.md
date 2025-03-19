@@ -68,7 +68,7 @@ And that's it! Your appsettings.json file is ready!
 When you initalize new instance of appsettings file, it automatically loads it's parameter's values.
 
 Requesting parameter declared in your class, instantly returns value from appsettings file.\
-*!!Important!!* File does not automatically synchronise with the physical one on the device since autosync is still in development. When file gets modified by another process or user, properies won't synchronise. All properties are loaded only once. When you want the current content of your file, call:
+*!!Important!!* File does not automatically synchronise with the physical one on the device since **Source mirroring is still in development**. When file gets modified by another process or user, properies won't synchronise. All properties are loaded only once. When you want the current content of your file, call:
 
     settings.Discard()
 
@@ -89,14 +89,15 @@ Later usage
 > saves the file and applies the changes to your appsettings.json
 
 
-## Autosync functionality (under development)
-Autosync enables your instance to be always on time with it's original state.
+## Source mirroring functionality (under development)
+Source mirroring enables your instance to be always on time with it's original state.
 
 ### FileChanged Event
-Event is being called every time when file got modified.
+Event is being called when source file gets modified.
+This allows you to be always up-to-date with settings of your file without restarting the app or reinitializing the instance.
 You can override the **FileChanged** method to handle this event.
 
-##Example usage
+## Example usage
 
     public override void FileChanged()
     {
