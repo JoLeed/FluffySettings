@@ -110,11 +110,11 @@ Source mirroring enables your instance to be always on time with it's original s
 ## Disabling Source Mirroring
 It's recommended to keep the source mirroring on, but if you're motivated to do so:
 
-###In your model, add parameter to the constructor:
+### In your model, add parameter to the constructor:
 
     ublic SettingsModel(bool autosv) : base(mirroring: autosv) { }
 
-###Then while creating an instance:
+### Then while creating an instance:
 
     SettingsModel settings = new SettingsModel(false); //passes false value to the constructor of the file.
 
