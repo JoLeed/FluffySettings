@@ -28,7 +28,7 @@ With FluffySettings you can:
 **AppsettingsProperty** defines that this property is a property of your appsettings file.
 
 ## Methods and variables
-**SourceChanged** event which is beaing called when source file changes. Only works with [Source Mirroring ON](#Source Mirroring)
+**SourceChanged** event which is beaing called when source file changes. Only works with [Source Mirroring](#source-mirroring) on.
 
 ## Setup
 **Model:**
@@ -98,7 +98,7 @@ Later usage
 > saves the file and applies the changes to your appsettings.json
 
 : :
-## Source Mirroring
+# Source Mirroring
 Source mirroring enables your instance to be always on time with it's original state.
 
 ### It's recommended to keep the source mirroring on, but if you're motivated to do so:
