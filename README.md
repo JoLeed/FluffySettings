@@ -17,8 +17,8 @@ With FluffySettings you can:
 FluffySettings isn't only for the appsettings.json file. If you wish, you can [specify file name in parameter](#Instance-parameters) to generate your custom settings file.
 
 ## Usage examples:
-[YourCustomAppConfigurator] - application for configuring appsettings.json of your apps
-[CustomSettingsForMyApp] - file "gamesettings.json" generated and handled by FluffySettings to adjust the game properties.
+[YourCustomAppConfigurator] - application for configuring appsettings.json of your apps\
+[CustomSettingsForMyApp] - file "gamesettings.json" generated and handled by FluffySettings to adjust the game properties.\
 
 
 # Using FluffySettings
