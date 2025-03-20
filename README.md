@@ -13,6 +13,9 @@ With FluffySettings you can:
 - Modify properties of your settings file
 - Create your custom json setting files, you don't especially need to use appsettings.json
 
+## Important note
+FluffySettings isn't only for the appsettings.json file. If you wish, you can [specify file name in parameter](#Instance-parameters) to generate your custom settings file.
+
 # Using FluffySettings
 
 ## Requirements
