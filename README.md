@@ -90,7 +90,7 @@ Later usage
 > saves the file and applies the changes to your appsettings.json
 
 : :
-## Source mirroring functionality (under development)
+## Source mirroring functionality
 Source mirroring enables your instance to be always on time with it's original state.
 
 ### It's recommended to keep the source mirroring on, but if you're motivated to do so:
@@ -103,7 +103,7 @@ Then while creating an instance:
 
     SettingsModel settings = new SettingsModel(false); //passes false value to the constructor of the file.
 
-### SourceChanged Event
+### SourceChanged Event for handling settings modification
 Event is being called when source file gets modified.
 This allows you to be always up-to-date with settings of your file without restarting the app or reinitializing the instance.
 You can override the **SourceChanged** method to handle this event.
@@ -122,3 +122,7 @@ This is to keep your program secure and prevent any bugs to gain access to unwan
     
         [ProtectedProperty]
         public bool AppCanDeleteSystemFile { get; set; }
+
+##Visual studio json editor & SourceMirroring conflict
+Some text editor like "Visual studio" are not properly modyfying the file, leaving your instance content outdated even with mirroring on.
+When your settings are critical and you don't want to override new settings edited using this editors with the new one, always call .Discard() before modyfying property value.
