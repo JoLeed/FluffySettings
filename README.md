@@ -108,7 +108,7 @@ Event is being called when source file gets modified.
 This allows you to be always up-to-date with settings of your file without restarting the app or reinitializing the instance.
 You can override the **SourceChanged** method to handle this event.
 
-## Example usage
+## Example usage of SourceChanged Event overriding
 
     public override void FileChanged()
     {
