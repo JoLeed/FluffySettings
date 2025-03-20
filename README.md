@@ -27,32 +27,48 @@ With FluffySettings you can:
 ## Attributes
 **AppsettingsProperty** defines that this property is a property of your appsettings file.
 
-## Methods and variables
+## Events
 **SourceChanged** event which is beaing called when source file changes. Only works with [Source Mirroring](#source-mirroring) on.
 
-## Setup
-**Model:**
+## Variables
+**Name** - returns string with name of your appsettings file.\
+**Path** - returns full path to your appsettings file.\
+**Directory** - returns directory's full path, your file is in.\
+**SourceContent** - returns content directly from your physical appsettings file.\
+**Content** - returns raw content that your instace operates on\
+
+## Methods 
+**Save** - saves changes to your settings file.\
+**Discard** - Discards all changes and reloads the file.\
+
+
+# Basic Setup
+Lets show you, how to make fluffySettings work with your app. Follow theese few short steps to make it happen!
+
+### NuGet installation:
+You can directly download FluffySettings nuget from [https://www.nuget.org/](https://www.nuget.org/packages/FluffySettings) gallery.
+* If you use Visual Studio 2015+ or any IDE that supports nuget gallery browser, just search for "FluffySettings".*
+
+### After you install the NuGet, lets create a class:
 To gain control over your appsettings.json file your need to create a new class extending "AppSettings" which will be used as an instance of app's settings file.
 
-First create a class:
-
-    public class SomeSettingsFileModel : AppSettings
+    public class SomeSettingsFileModel : AppSettings // extends "AppSettings"
     {
     
     }
     
-If you want to pass any settings, just add the following line to the class:
+Later if you want to pass any settings, just add the following line to the class:
 
         public SettingsModel(bool autosv) : base(autoSave: autosv) { } // This part is important when you want to pass your instance parameters
 
-**Now lets declare properties of your settings file.** Every property needs to be preceded by [AppsettingsProperty] tag:
+### Now lets declare properties of your settings file. Every property needs to be preceded by [AppsettingsProperty] tag:
 
     [AppsettingsProperty]
     public string YourPropertyName { get; set; } = "";
 
-And that's it! Your appsettings.json file is ready!
+And that's it! Your appsettings.json file is ready to be controlled!
 
-### Full settings file class example:
+### Full settings file class example and usage:
     public class SettingsModel : AppSettings
     {
         public SettingsModel(bool autosv) : base(autoSave: autosv) { } // Optional
@@ -69,64 +85,55 @@ And that's it! Your appsettings.json file is ready!
         [AppsettingsProperty]
         public List<string> SomeRandonListSettings { get; set; } = new List<string> {"first", "second" };
     }
-### Usage
+
+In Main():
 
     SettingsModel settings = new SettingsModel(false); //creating new instance of your file
 
 When you initalize new instance of appsettings file, it automatically loads it's parameter's values.
 
-Requesting parameter declared in your class, instantly returns value from appsettings file.\
-
-*!!Important!! File does not automatically synchronise with the physical one on the device since **Source mirroring is still in development**. When file gets modified by another process or user, properies won't synchronise. All properties are loaded only once. When you want the current content of your file, call:*
-
-    settings.Discard()
-
-*This way, all changes are discarded and file is being reloaded to it's newest state.*
-
-### When file is initialized, you can already access any property value
+Retrieving parameter declared in your class, instantly returns value from initialized appsettings file.\
 
     settings.AllowedHosts
     > "value"
 
-Later usage
+Later usage:
 
     settings.LogsLocation = "C:\Users\Fluffy\Logs\Output" // setting parameter value
     settings.Save()
- :
- 
-    settings.Save()
-> saves the file and applies the changes to your appsettings.json
 
-: :
+
+
 # Source Mirroring
-Source mirroring enables your instance to be always on time with it's original state.
+Source mirroring enables your instance to be always on time with it's original state. You dont need to reinitialize the instance or restart your app to access current file content!
 
-### It's recommended to keep the source mirroring on, but if you're motivated to do so:
+## Disabling Source Mirroring
+It's recommended to keep the source mirroring on, but if you're motivated to do so:
 
-In your model, add parameter to the constructor:
+###In your model, add parameter to the constructor:
 
     ublic SettingsModel(bool autosv) : base(mirroring: autosv) { }
 
-Then while creating an instance:
+###Then while creating an instance:
 
     SettingsModel settings = new SettingsModel(false); //passes false value to the constructor of the file.
 
-### SourceChanged Event for handling settings modification
-Event is being called when source file gets modified.
-This allows you to be always up-to-date with settings of your file without restarting the app or reinitializing the instance.
-You can override the **SourceChanged** method to handle this event.
+## SourceChanged Event for handling and detection of settings file modification
+Sometimes your appsettings file [can be modified by hand](#Visual-studio-json-editor-&-SourceMirroring-conflict) or by another process. SourceChanged event allows you to handle settings modification properly!
+Event is being called every time when source file gets modified.
 
-### Example usage
+### Example usage (Overriding the SourceChanged event)
 
-    public override void FileChanged()
+    public override void SourceChanged()
     {
         // your logic here
     }
-### **Visual studio json editor & SourceMirroring conflict**
+    
+# Visual studio json editor & SourceMirroring conflict
 Some text editors like "Visual studio" are not properly modyfying the text files, leaving your instance content outdated even with mirroring on.
 When settings are critical for your app and you don't want to override new settings edited using this editors with the new one, always call .Discard() before modyfying property value.
 
-## Properties protection
+# Properties protection
 Some settings should be read only for yoor app. To make it so, add the **ProtectedProperty** attribute to your property.
 You will be only able to modify this property from your file or other program.
 This is to keep your program secure and prevent any bugs to gain access to unwanted parts.
