@@ -4,6 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Title>FluffySettings</Title>
+    <Description>Appsettings.json of your app doesn't need to be so hard to access. Say goodbye to scary in-built appsettings.json file and welcom a lightweight, fast, and ridiculously easy-to-use NuGet package for managing configuration of your .NET applications. With FluffyBunny, your settings are always within reach – clean, simple, and ready to hop into action.</Description>
+    <Copyright>@Joleed</Copyright>
+    <PackageProjectUrl>https://github.com/JoLeed/FluffySettings</PackageProjectUrl>
+    <PackageIcon>New Project.png</PackageIcon>
+    <RepositoryUrl>https://github.com/JoLeed/FluffySettings</RepositoryUrl>
+    <PackageTags>appsettings.json;appsettings;configuration;settings;app config; app settings; appsettings.json simplifier; appsettings helper</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +20,13 @@
 
   <ItemGroup>
     <Folder Include="Types\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Downloads\New Project.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
