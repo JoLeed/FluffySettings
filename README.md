@@ -108,12 +108,15 @@ Event is being called when source file gets modified.
 This allows you to be always up-to-date with settings of your file without restarting the app or reinitializing the instance.
 You can override the **SourceChanged** method to handle this event.
 
-## Example usage of SourceChanged Event overriding
+### Example usage
 
     public override void FileChanged()
     {
         // your logic here
     }
+### **Visual studio json editor & SourceMirroring conflict**
+Some text editor like "Visual studio" are not properly modyfying the file, leaving your instance content outdated even with mirroring on.
+When your settings are critical and you don't want to override new settings edited using this editors with the new one, always call .Discard() before modyfying property value.
 
 ## Properties protection
 Some settings should be read only for yoor app. To make it so, add the **ProtectedProperty** attribute to your property.
@@ -123,6 +126,3 @@ This is to keep your program secure and prevent any bugs to gain access to unwan
         [ProtectedProperty]
         public bool AppCanDeleteSystemFile { get; set; }
 
-## **Visual studio json editor & SourceMirroring conflict**
-Some text editor like "Visual studio" are not properly modyfying the file, leaving your instance content outdated even with mirroring on.
-When your settings are critical and you don't want to override new settings edited using this editors with the new one, always call .Discard() before modyfying property value.
