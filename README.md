@@ -1,6 +1,4 @@
 # FluffySettings – the softest way to handle your appsettings.json 🐇✨
-
-## About
 Appsettings.json of your app doesn't need to be so hard to access. Say goodbye to scary in-built appsettings.json file and welcom a lightweight, fast, and ridiculously easy-to-use NuGet package for managing configuration of your .NET applications. With FluffyBunny, your settings are always within reach – clean, simple, and ready to hop into action.
 
 ⚡ Fast – Zero fluff where it matters. Just pure speed and efficiency.
@@ -15,14 +13,24 @@ With FluffySettings you can:
 - Modify properties of your settings file
 - Use two modes: auto-sync (you always get synced file content), local-memory (file gets synced with its current content on any time you want)
 
-# How to use
+# Using FluffySettings
 
-### Instance parameters
+## Requirements
+**.NET** .Net 8.0 or highier
+
+## Instance parameters
 **fileName** (optional, Default "appsettings.json") - define custom name for your appsettings file.\
 **autosave** (optional, Default false) - !DOESN'T WORK FOR NOW! saves your settings file on every change.\
 **preventCreation** (optional, Default false) - prevents settings file from being created when it doesn't exist.\
+**mirroring** (optional, Default true) - enabled file source mirroring so that your instance content is always up to date with physical file content.\
 
-### Setup
+## Attributes
+**AppsettingsProperty** defines that this property is a property of your appsettings file.
+
+## Methods and variables
+**SourceChanged** event which is beaing called when source file changes. Only works with [Source Mirroring ON](#Source Mirroring)
+
+## Setup
 **Model:**
 To gain control over your appsettings.json file your need to create a new class extending "AppSettings" which will be used as an instance of app's settings file.
 
@@ -90,7 +98,7 @@ Later usage
 > saves the file and applies the changes to your appsettings.json
 
 : :
-## Source mirroring functionality
+## Source Mirroring
 Source mirroring enables your instance to be always on time with it's original state.
 
 ### It's recommended to keep the source mirroring on, but if you're motivated to do so:
@@ -115,8 +123,8 @@ You can override the **SourceChanged** method to handle this event.
         // your logic here
     }
 ### **Visual studio json editor & SourceMirroring conflict**
-Some text editor like "Visual studio" are not properly modyfying the file, leaving your instance content outdated even with mirroring on.
-When your settings are critical and you don't want to override new settings edited using this editors with the new one, always call .Discard() before modyfying property value.
+Some text editors like "Visual studio" are not properly modyfying the text files, leaving your instance content outdated even with mirroring on.
+When settings are critical for your app and you don't want to override new settings edited using this editors with the new one, always call .Discard() before modyfying property value.
 
 ## Properties protection
 Some settings should be read only for yoor app. To make it so, add the **ProtectedProperty** attribute to your property.
