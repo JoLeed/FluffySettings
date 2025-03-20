@@ -1,5 +1,5 @@
 # FluffySettings – the softest way to handle your appsettings.json 🐇✨
-Appsettings.json of your app doesn't need to be so hard to access. Say goodbye to scary in-built appsettings.json file and welcom a lightweight, fast, and ridiculously easy-to-use NuGet package for managing configuration of your .NET applications. With FluffyBunny, your settings are always within reach – clean, simple, and ready to hop into action.
+Appsettings.json of your app doesn't need to be so hard to access. Say goodbye to scary in-built appsettings.json file and welcom a lightweight, fast, and ridiculously easy-to-use NuGet package for managing configuration of your .NET applications. With FluffySettings, your settings are always within reach – clean, simple, and ready to hop into action.
 
 ⚡ Fast – Zero fluff where it matters. Just pure speed and efficiency.
 🐰 Easy to Use – Load, access, and update settings with minimal code and maximum fluffiness.
