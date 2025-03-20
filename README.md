@@ -11,7 +11,7 @@ With FluffySettings you can:
 - Add properties to your settings file
 - Remove properties from your settings file
 - Modify properties of your settings file
-- Use two modes: auto-sync (you always get synced file content), local-memory (file gets synced with its current content on any time you want)
+- Create your custom json setting files, you don't especially need to use appsettings.json
 
 # Using FluffySettings
 
