@@ -4,14 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionPrefix>1.0.1</VersionPrefix>
     <Title>FluffySettings</Title>
-    <Description>Appsettings.json of your app doesn't need to be so hard to access. Say goodbye to scary in-built appsettings.json file and welcom a lightweight, fast, and ridiculously easy-to-use NuGet package for managing configuration of your .NET applications. With FluffyBunny, your settings are always within reach – clean, simple, and ready to hop into action.</Description>
+    <Description>Say goodbye to inaccessible appsettings.json file and problems with modification. FluffySettings allows you to gain full control over the settings of your app!</Description>
     <Copyright>@Joleed</Copyright>
     <PackageProjectUrl>https://github.com/JoLeed/FluffySettings</PackageProjectUrl>
     <PackageIcon>New Project.png</PackageIcon>
     <RepositoryUrl>https://github.com/JoLeed/FluffySettings</RepositoryUrl>
-    <PackageTags>appsettings.json;appsettings;configuration;settings;app config; app settings; appsettings.json simplifier; appsettings helper</PackageTags>
+    <PackageTags>appsettings.json;appsettings;configuration;settings;app config;app settings;appsettings.json simplifier;appsettings helper;json configuration;dotnet settings;c# configuration;net core config;net config helper;config manager;settings manager;json config helper;json settings loader;configuration helper;config file helper;environment settings;aspnetcore settings;appsettings editor;appsettings formatter;config simplifier;dotnet config utility;config file parser;config helper library;load appsettings.json;parse appsettings.json;edit appsettings.json;read appsettings.json;appsettings.json tool;appsettings.json library</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
