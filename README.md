@@ -1,5 +1,7 @@
 # FluffySettings – the softest way to handle your appsettings.json 🐇✨
-Appsettings.json of your app doesn't need to be so hard to access. Say goodbye to scary in-built appsettings.json file and welcom a lightweight, fast, and ridiculously easy-to-use NuGet package for managing configuration of your .NET applications. With FluffyBunny, your settings are always within reach – clean, simple, and ready to hop into action.
+Appsettings.json of your app doesn't need to be so hard to access. Say goodbye to scary in-built appsettings.json file and welcome a lightweight, fast, and ridiculously easy-to-use NuGet package for managing configuration of your .NET applications. With FluffySettings, your settings are always within reach – clean, simple, and ready to hop into action.
+
+### Get it on [nuget.org](https://www.nuget.org/packages/FluffySettings) or type in your nuget browser "FluffySettings"
 
 ⚡ Fast – Zero fluff where it matters. Just pure speed and efficiency.
 🐰 Easy to Use – Load, access, and update settings with minimal code and maximum fluffiness.
@@ -11,7 +13,15 @@ With FluffySettings you can:
 - Add properties to your settings file
 - Remove properties from your settings file
 - Modify properties of your settings file
-- Use two modes: auto-sync (you always get synced file content), local-memory (file gets synced with its current content on any time you want)
+- Create your custom json setting files, you don't especially need to use appsettings.json
+
+## Important note
+FluffySettings isn't only for the appsettings.json file. If you wish, you can [specify file name in parameter](#Instance-parameters) to generate your custom settings file.
+
+## Usage examples:
+[YourCustomAppConfigurator] - application for configuring appsettings.json of your apps\
+[CustomSettingsForMyApp] - file "gamesettings.json" generated and handled by FluffySettings to adjust the game properties.\
+
 
 # Using FluffySettings
 
@@ -110,11 +120,11 @@ Source mirroring enables your instance to be always on time with it's original s
 ## Disabling Source Mirroring
 It's recommended to keep the source mirroring on, but if you're motivated to do so:
 
-###In your model, add parameter to the constructor:
+### In your model, add parameter to the constructor:
 
     ublic SettingsModel(bool autosv) : base(mirroring: autosv) { }
 
-###Then while creating an instance:
+### Then while creating an instance:
 
     SettingsModel settings = new SettingsModel(false); //passes false value to the constructor of the file.
 
