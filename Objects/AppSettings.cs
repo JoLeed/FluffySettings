@@ -8,6 +8,13 @@ namespace FluffySettings.Objects
 {
     public abstract class AppSettings
     {
+        private char _systemPathFolderSeparator
+        {
+            get
+            {
+                return System.IO.Path.DirectorySeparatorChar;
+            }
+        }
         private FileSystemWatcher _sourceMirroringWatcher;
         private bool _sourceMirroring { get; set; }
         private string _settingsfilename { get; set; }
@@ -28,9 +35,10 @@ namespace FluffySettings.Objects
                 else
                 {
                     //TODO: Fix this shitty code. If exe is placed in deeper folder, it will not work.
-                    List<string> splitted = System.IO.Directory.GetCurrentDirectory().Split("\\").ToList();
+                    char folderSeparator = _systemPathFolderSeparator;
+                    List<string> splitted = AppDomain.CurrentDomain.BaseDirectory.Split(new char[]{'\\','/'}).ToList();
                     splitted = splitted.SkipLast(3).ToList();
-                    return string.Join("\\", splitted) + "\\" + _settingsfilename;
+                    return string.Join(folderSeparator, splitted) + folderSeparator + _settingsfilename;
                 }
             }
         }
@@ -38,9 +46,9 @@ namespace FluffySettings.Objects
         {
             get
             {
-                List<string> steps = Path.Split("\\").ToList();
+                List<string> steps = Path.Split(_systemPathFolderSeparator).ToList();
                 steps = steps.SkipLast(1).ToList();
-                return string.Join("\\", steps);
+                return string.Join(_systemPathFolderSeparator, steps);
             }
         }
         private string Watermark
